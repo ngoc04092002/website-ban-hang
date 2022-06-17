@@ -1,0 +1,45 @@
+@use '../../scss/' as *;
+.footer{
+    display: flex;
+    flex-direction: column;
+    background: $body-bg;
+    color: $white;
+    .footer__top{
+        @include flex(center,space-between);
+        flex-wrap: wrap;
+        .footer__top_inf{
+            width: 25%;
+            margin:2rem 0;
+            text-transform: capitalize;
+            text-align: center;
+            @include tablet{
+                width: 50%;
+                font-size: 1.4rem;
+            }
+            @include mobile{
+                width: 90%;
+                font-size: 2rem;
+            }
+            span{
+                text-transform: none;
+            }
+            li{
+                margin-top: .8rem;
+            }
+        }
+    }
+    .footer__bottom{
+        @include flex(center,space-around);
+        margin-top: 6rem;
+        margin-bottom: 1rem;
+        ul{
+            @include flex(center,space-between);
+            img{
+                width: 3.6rem;
+                height: 3.6rem;
+                object-fit: cover;
+            }
+            
+        }
+    }
+}

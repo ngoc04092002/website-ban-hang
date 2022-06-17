@@ -1,0 +1,9 @@
+@use '../../scss/' as *;
+
+.MuiTableCell-body {
+    word-break: break-all;
+}
+
+.MuiTableCell-head {
+    white-space: nowrap;
+}

@@ -1,0 +1,78 @@
+@use '../../../scss/' as *;
+
+.answer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-bottom: 40px;
+    margin-bottom: 16px;
+    img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        margin-right: 16px;
+        object-fit: cover;
+    }
+    .box {
+        width: 100%;
+
+        .text {
+            position: relative;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 4px;
+            min-height: 24px;
+            word-break: break-word;
+            cursor: text;
+            span {
+                &:nth-of-type(1) {
+                    white-space: nowrap;
+                    background: $main-color;
+                    color: white;
+                }
+            }
+            &::before {
+                content: attr(placeholder);
+                position: absolute;
+                width: 100%;
+                display: inline-block;
+                color: #999;
+                line-height: 1.2;
+            }
+        }
+        .action {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            right: 0;
+            bottom: -6px;
+            button {
+                background: transparent;
+                padding: 0.6rem 1rem;
+                color: #ccc;
+                font-size: 16px;
+                font-weight: 600;
+                border-radius: 20px;
+                cursor: pointer;
+                &.cancel {
+                    margin-right: 1rem;
+                    &:hover {
+                        background-color: rgb(221 221 221 / 26%);
+                    }
+                }
+                &.comment {
+                    background-color: #ccc;
+                    color: white;
+                    cursor: default;
+                    user-select: none;
+                    &.active {
+                        background-color: $btn-color;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: $main-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

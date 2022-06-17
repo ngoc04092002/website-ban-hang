@@ -1,0 +1,31 @@
+@use '../../../scss/' as *;
+
+.right-side {
+    display: flex;
+    justify-content: space-evenly;
+    width: 95%;
+    flex-direction: column;
+    
+    & > div {
+        @include mobile-xl {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h3 {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+    @include tablet-xl {
+        justify-content: flex-start;
+        margin-top: 2rem;
+    }
+    @include mobile-xl {
+        padding: 2.4rem;
+        width: 100%;
+        margin-top: 0;
+    }
+    @include mobile-s {
+        width: 90%;
+    }
+}

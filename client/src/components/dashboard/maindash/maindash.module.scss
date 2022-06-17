@@ -1,0 +1,18 @@
+@use '../../../scss/' as *;
+
+.main__dash{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding:0 1rem;
+    @include mobile-xl{
+        padding: 0;
+    }
+    @include tablet-xl{
+        justify-content: flex-start;
+        margin-top: 1rem;
+    }
+    @include mobile-xl{
+        align-items: center;
+    }
+}

@@ -1,0 +1,9 @@
+@use '../../../scss/' as *;
+
+.expand_answer{
+    img{
+        width: 32px;
+        height: 32px;
+        object-fit: cover;
+    }
+}

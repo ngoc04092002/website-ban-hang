@@ -1,0 +1,53 @@
+@use './scss/' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,500&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;border: none;
+    list-style: none;
+    text-decoration: none;
+    transition: all .15s ease-in-out;
+}
+
+html{
+    font-size: 100%;
+    background-color: rgb(247, 247, 247);
+    overflow-y:overlay ;
+    overflow-x: hidden;
+    @include tablet{
+        font-size: 80%;
+    }
+    @include mobile{
+        font-size: 60%;
+    }
+    &::-webkit-scrollbar{
+        width:.6rem;
+    }
+
+    &::-webkit-scrollbar-track{
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background: #ccc;
+        border-radius: 3rem;
+    }
+}
+
+body{
+    position: relative;
+    font-family:$font-family;
+}
+
+section{
+    padding: 0 8%;
+}
+
+a{
+    border-radius: inherit;
+    color: black;
+}
+

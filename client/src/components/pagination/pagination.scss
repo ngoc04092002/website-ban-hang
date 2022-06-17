@@ -1,0 +1,46 @@
+@use '../../scss/' as *;
+
+.pagination__wrapper{
+    .smart{
+        white-space: nowrap;
+        @include mobile-xl{
+            display: none;
+        }
+    }
+    .pc{
+        display: none;
+        text-transform: capitalize;
+        @include mobile-xl{
+            display: block;
+        }
+    }
+    @include flex(center,center);
+    margin: 100px 0;
+    .pagination__number{
+        font-size: 20px;
+        color: white;
+        background-color: $main-color;
+        padding: 6px 20px;
+        margin: 0 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        &.active{
+            background-color: $btn-color;
+        }
+    }
+    .icon__dir{
+        font-size: 20px;
+        color: white;
+        background-color: $btn-color;
+        padding: 6px 20px;
+        margin: 0 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        &.disabled{
+            pointer-events: none;
+            cursor: default;
+            background-color: $main-color;
+        }
+    }
+    
+}

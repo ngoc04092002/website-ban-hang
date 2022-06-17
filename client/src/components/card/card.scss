@@ -1,0 +1,54 @@
+@use '../../scss/' as *;
+
+.card__request-wrapper{
+    position: fixed;
+    @include flex(center,center);
+    flex-direction: column;
+    z-index: 1999;
+    background: rgba(0,0,0,.2);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: none;
+    .card__request{
+        display: flex;
+        align-items: center;
+        background: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%);
+        flex-direction: column;
+        width: 24rem;
+        height: 14rem;
+        border-radius: 8px;
+        padding:1rem .8rem;
+        &>svg{
+            font-size: 3.4rem;
+            color: $btn-color;
+        }
+    }
+    .container-btns{
+        @include flex(center,space-between);
+        width: 100%;
+        button{
+            color: white;
+            font-size: 1.4rem;
+            padding: 1rem 3rem;
+            cursor: pointer;
+            border-radius: .4rem;
+            text-transform: capitalize;
+        }
+        .btn__cancel{
+            background-color: red;
+        }
+        .btn__delete{
+            background-color: $btn-color;
+        }
+    }
+    p{
+        color: white;
+        font-size: 1.3rem;
+        margin: 1rem 0 2.6rem 0;
+    }
+    &.active{
+        display: flex;
+    }
+}

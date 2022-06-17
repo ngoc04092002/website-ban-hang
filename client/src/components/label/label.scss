@@ -1,0 +1,42 @@
+@use '../../scss/' as *;
+
+.label__products{
+    
+    background-color: white;
+    margin: 0 8%;
+    padding: 1rem;
+    h1{
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        .icon_ctg{
+            margin-right: 1rem;
+        }
+    }
+    .label{
+        display:flex;
+        flex-direction: column;
+        border: 1px solid #ccc;
+        width: 20%;
+        text-align: center;
+        @include mobile-s{
+         width: 50%;   
+        }
+        img{
+            width: 8rem;
+            height: 8rem;
+            object-fit: contain;
+        }
+        span{
+            font-size: 1.4rem;
+            text-transform: capitalize;
+            cursor: default;
+        }
+        &:hover{
+            box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2);
+        }
+    }
+    .label__container{
+        flex-wrap: wrap;
+        @include flex(center,space-between);
+    }
+}

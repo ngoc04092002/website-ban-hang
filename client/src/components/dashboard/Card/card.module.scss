@@ -1,0 +1,105 @@
+@use '../../../scss/' as *;
+
+.compact-card{
+    display: flex;
+    flex:1;
+    border-radius: .6rem;
+    height: 10rem !important;
+    position: relative;
+    color:white;
+    cursor: pointer;
+    padding: .4rem .8rem;
+    &:hover{
+        box-shadow: none !important;
+    }
+    span{
+        text-transform: capitalize;
+    }
+}
+
+.radial-bar{
+    display: flex;
+    flex:1;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap:.6rem;
+    
+}
+
+.icon {
+    width: 6rem !important;
+    overflow: visible;
+    path{
+        stroke: white !important;
+        
+    }
+    path {
+        &:nth-of-type(2){
+            stroke-width: 12px !important;
+            filter: drop-shadow(2px 4px 6px white);
+        }
+        &:nth-of-type(1){
+            display: none;
+        }
+    }
+    text{
+        fill: white !important;
+    }
+}
+
+.detail{
+    @include flex(flex-end,space-between);
+    flex:1;
+    flex-direction: column;
+    span{
+        
+        &:nth-of-type(1){
+            font-size: 18px;
+            font-weight: bold;
+        }
+        &:nth-of-type(2){
+            font-size: 12px;
+        }
+    }
+}
+
+.expanded-card{
+    position: absolute;
+    width: 60%;
+    height: 70vh;
+    z-index: 9;
+    left: 14rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    @include flex(center,space-between);
+    flex-direction: column;
+    text-transform: capitalize;
+    @include tablet-xl{
+        top:2rem;
+        height:62vh;
+        left: 16rem;
+    }
+    @include mobile-xl{
+        top: 7rem;
+        height: 40%;
+        left: 5rem;
+        width: 80%;
+    }
+    span{
+        &:nth-of-type(1){
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            text-shadow: 0 0 15px white;
+        }
+        &:nth-of-type(2){
+            color: rgba(223,222,222);
+            font-size: 16px;
+        }
+        
+    }
+    .chart-container{
+        width: 70%;
+    }
+}
+

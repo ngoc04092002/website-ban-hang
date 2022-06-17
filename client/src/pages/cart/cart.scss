@@ -1,0 +1,279 @@
+@use '../../scss/' as *;
+
+.cart_wrapper{
+    margin-top: calc(88px + 4rem);
+    position: relative;
+    .cart__back{
+        position: absolute;
+        font-size: 1.4rem;
+        text-transform: capitalize;
+        left: 4rem;
+        top: -3rem;
+        cursor: pointer;
+        text-decoration: underline solid $btn-color 2px;
+        .cart__back-icon{
+            position: absolute;
+            top: 2px;
+            left: -21px;
+            transition: left .2s ease-in-out;
+        }
+        &:hover{
+            .cart__back-icon{
+                left: -26px;
+            }
+            color:#888;
+        }
+    }   
+    .title__items-purchsed{ 
+        margin-bottom: 10px;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.15);
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+        font-size: 1.2rem;
+        background-color: $white;
+        padding: 1rem 2rem;
+        color: #888;
+        font-weight: 400;
+        @include mobile-xl{
+            display: none;
+        }
+        li:first-child{
+            flex:1;
+        }
+        li{
+            margin: 0 2rem;
+        }
+    }
+}
+
+.lists__purchased-wrapper{
+    display: flex;
+    align-items: center;
+    background-color: $white;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.15);
+    border-bottom: 1px solid #eee;
+    padding: 1rem 2rem;
+    @include mobile-xl{
+        flex-direction: column;
+    }
+    .lists__purchased-left{
+        @include flex(center,space-between);
+        width: 100%;
+    }
+    .lists__purchased-right{
+        @include flex(center,space-between);
+        @include mobile-xl{
+            justify-content: flex-end;
+            width: 100%;
+        }
+    }
+    .lists__purchased-img{
+        display: flex;
+        align-items: center;
+        flex:1;
+        img{
+            width: 5rem;
+            height: 5.2rem;
+            object-fit: cover;
+            border-radius: 4px;
+            margin: 0 .4rem;
+            @include mobile{
+                width: 7rem;
+                height: 7.2rem;
+            }
+        }
+        p{
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow: hidden;
+            width: 50%;
+        }
+    }
+    .price-saled{
+        display: flex;
+        align-items: center;
+        @include mobile-xl{
+            font-size: 1.4rem;
+        }
+        .price-sale{
+            text-decoration: line-through $main-color solid 2px;
+            margin-right:.4rem ;
+        }
+    }
+    .item-quanity{
+        display: flex;
+        align-items: center;
+        margin: 0 2rem;
+        .change_quanity{
+            padding: 0.4rem 0.6rem;
+            border: 1px solid rgba(0, 0, 0, 0.09);
+            cursor: pointer;
+            &.active{
+                pointer-events: none;
+                background-color: rgba(0, 0, 0, 0.04);
+            }
+        }
+        input{
+            padding: 0.4rem;
+            height: 2.2rem;
+            width: 3.4rem;
+            border: 1px solid rgba(0,0,0,.09);
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 300;
+            &:focus{
+                border: 1px solid rgba(0,0,0,.4);
+            }
+        }
+    }
+    .price-current{
+        margin:0  3rem 0 1rem;
+        cursor: default;
+        user-select: none;
+        @include mobile-xl{
+            font-size: 1.4rem;
+        }
+    }
+    .trash{
+        margin: 0 2rem;
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 1rem;
+        @include mobile-xl{
+            font-size: 1.4rem;
+        }
+        &:hover{
+            text-decoration: underline $main-color solid 2px;
+        }
+    }
+    
+}
+
+.container-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size:16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    text-transform: capitalize;
+    user-select: none;
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        &:checked ~ .checkmark{
+            background-color: #2196F3;
+        }
+        &:checked ~ .checkmark:after{
+            display: block;
+        }
+      }
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+        &::after{
+            content: "";
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 4px;
+            width: 4px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+      }
+      &:hover{
+        input ~ .checkmark {
+            background-color: #ccc;
+          }
+      }
+  }
+
+.payment{
+    @include flex(center,space-between);
+    margin: 50px 0;
+    font-weight: 400;
+    background-color: white;
+    padding: .8rem 2rem;
+    flex-wrap: wrap;
+    
+    .payment__left{
+        @include flex(center,space-between);
+        @include mobile-xl{
+            width: 100%;
+        }
+        .container-checkbox{
+            margin-top: 12px;
+            margin-right: 1rem;
+        }
+        p{
+            text-transform: capitalize;
+            cursor: pointer;
+            font-size: 1.4rem;
+            @include mobile{
+                font-size: 2rem;
+            }
+            &:hover{
+                text-decoration: underline $main-color solid 2px;
+            }
+        }
+    }
+    .payment__right{
+        @include flex(center,space-between);
+        text-transform: capitalize;
+        @include mobile-xl{
+            width: 100%;
+        }
+        p{
+            font-size: 1rem;
+            font-weight: 400;
+            @include mobile{
+                font-size: 1.4rem;
+            }
+            &:last-child{
+                @include mobile-xl{
+                    flex: 1;
+                }
+            }
+        }
+        .buy__items{
+            color: $white;
+            background-color: $btn-color;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            text-transform: capitalize;
+            border-radius: .4rem;
+            margin-left: 1rem;
+            box-shadow: 0 1px 1px 0 rgba(0,0,0,.15);
+            cursor: pointer;
+            @include mobile{
+                font-size: 1.4rem;
+            }
+            &:hover{
+                background-color: $main-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,65 @@
+@use '../../scss/' as *;
+
+.left {
+    padding: 2rem 1rem;
+    width: 100%;
+    .list_products{
+        overflow-x: hidden;
+        height: 76vh;
+        padding: .4rem;
+        overflow-y: scroll;
+        border-radius: 4px;
+        background-color: white;
+        @include mobile-xl{
+            height: 60vh;
+        }
+        &::-webkit-scrollbar{
+            width: 0.5rem;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: #c2c2c2;
+            border-radius: 10px;
+        }
+      
+    }
+    h1 {
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+        margin-bottom: 1rem;
+        @include mobile-xl{
+            justify-content: center;
+        }
+        svg {
+            margin-right: 1rem;
+            font-size: 2.6rem;
+        }
+    }
+    h1+a{
+        text-align: center;
+        display: block;
+        margin-top: 3rem;
+        font-size: 1.6rem;
+        color: blue;
+        &:hover{
+            text-decoration: underline solid 2px blue;
+        }
+    }
+}
+
+.right{
+    padding: 6rem 0;
+    width: 96%;
+    @include mobile-xl{
+        padding-right: 1rem;
+        padding-left: 2rem;
+        grid-row: 1;
+    }
+    .right-search{
+        margin-bottom: 2rem;
+        &~div{
+            margin-bottom: 2rem;
+        }
+        
+    }
+}

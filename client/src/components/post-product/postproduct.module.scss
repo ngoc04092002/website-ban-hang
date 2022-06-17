@@ -1,0 +1,81 @@
+@use '../../scss/' as *;
+
+.post_product {
+    grid-column: 2/4;
+    padding-top: 30px;
+    @include mobile-xl{
+        grid-column: 1/4;
+        text-align: center;
+    }
+    h1 {
+        font-size: 30px;
+        text-transform: capitalize;
+        margin-bottom: 40px;
+    }
+    .left {
+        padding-right: 20px;
+        @include mobile-xl{
+            padding-bottom: 10px;
+            padding-right: 0;
+        }
+        .left_item{
+            @include mobile-xl{
+                width: 100%;
+            }
+        }
+        .left_item1{
+            @include mobile-xl{
+                width: calc(48rem/5 - 13px);
+            }
+        }
+        ul {
+            li {
+                margin-bottom: 10px;
+            }
+        }
+        .btn{
+            margin-top: 50px;
+            @include mobile-xl{
+                margin-top: 20px;
+            }
+        }
+    }
+    .right{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        height: 26.2rem;
+        @include tablet{
+            height: 30.2rem;
+        }
+
+        @include mobile-xl{
+            height: 20rem;
+            margin-bottom: 20px;
+        }
+        .img-list{
+            &::-webkit-scrollbar{
+                width: 4px;
+            }
+            &::-webkit-scrollbar-thumb{
+                background-color: #ccc;
+                border-radius: 2px;
+            }
+            &::-webkit-scrollbar-track{
+                background-color: #fff;
+                border-radius: 2px;
+            }
+        }
+    }
+    form {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        @include mobile-xl{
+            flex-wrap: wrap;
+            flex-direction: column-reverse;
+        }
+    }
+}

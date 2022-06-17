@@ -1,0 +1,42 @@
+@use '../..//scss/' as *;
+
+.search_products-xl{
+    margin-top: calc(88px + 2rem);
+    margin-bottom: 10rem;
+    display: none;
+    @include mobile-xl{
+        display: block;
+    }
+    &:focus-within{
+        .list_products{
+            display: block;
+        }
+    }
+    .search{
+        box-shadow: $box-shadow;
+        height: 6rem;
+        input{
+            font-size: 2rem;
+            padding-right: 3rem;
+        }
+        .icon{
+            width: 2em;
+            height: 2em;
+            margin: 0 1rem;
+            border-right:1px solid #e6e4e4;
+        }
+        label{
+            .bi-icon{
+                font-size: 2rem;
+            }
+        }
+    }
+    .list_products{
+        margin-top: 2rem;
+        display: none;
+    }
+}
+
+.search_see-more{
+    height: 42vh;
+}

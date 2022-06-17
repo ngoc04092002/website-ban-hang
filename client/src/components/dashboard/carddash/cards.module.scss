@@ -1,0 +1,22 @@
+@use '../../../scss/' as *;
+
+.cards{
+    display: flex;
+    gap:10px;
+    margin: 1rem 0 2.4rem;
+    @include tablet-xl{
+        flex-direction: column;
+    }
+    .parent-container{
+        width: 100%;
+        @include tablet-xl{
+            height: 10rem;
+        }
+        @include mobile-s{
+            width: 90%;
+        }
+    }
+    @include mobile-xl{
+        width: 90%;
+    }
+}

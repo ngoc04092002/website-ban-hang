@@ -1,0 +1,165 @@
+@use '../../scss/' as *;
+
+
+.account {
+    padding-top: 30px;
+    h1 {
+        text-transform: capitalize;
+        font-size: 30px;
+        @include mobile-xl {
+            display: none;
+        }
+    }
+    @include mobile-xl {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .account-container {
+        margin-top: 60px;
+
+        .account-wrapper {
+            
+            .account-left {
+                border-right: 1px solid #ccc;
+                @include mobile-xl {
+                    border-right: 1px solid transparent;
+                }
+                ul {
+                    li {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 50px;
+                        label {
+                            margin-right: 6px;
+                            font-size: 18px;
+                            text-transform: capitalize;
+                            span {
+                                font-size: inherit;
+                                color: $black;
+                                text-transform: none;
+                                user-select: initial;
+                            }
+                        }   
+                        .input{
+                            position: relative;
+                            input {
+                                padding: 8px 10px;
+                                font-size: 15px;
+                                caret-color: $btn-color;
+                                transition: all .25s ease-in-out;
+                                border: 1px solid transparent;
+                                &:focus {
+                                    border: 1px solid $btn-color;
+                                }
+                                &.error {
+                                    border:1px solid red;
+                                }
+                                &+svg{
+                                    position: absolute;
+                                    right: 10px;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    cursor: pointer;
+                                    font-size: 20px;
+                                }
+                            }
+                            p{
+                                display: flex;
+                                position: absolute;
+                                bottom: -20px;
+                                font-size: 13px;
+                                color: red;
+                                svg{
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                        span {
+                            cursor: pointer;
+                            font-size: 14px;
+                            color: $btn-color;
+                            text-transform: capitalize;
+                            padding: 10px 10px 0 0;
+                            user-select: none;
+                            white-space: nowrap;
+                            &:hover {
+                                color: $main-color;
+                                text-decoration: underline solid 2px;
+                            }
+                        }
+                    }
+                }
+                ul{
+                    &:nth-of-type(2){
+                        display: flex;
+                        align-items: center;
+                        li{
+                            label{
+                                user-select: none;
+                            }
+                            margin-right: 50px;
+                        }
+                    }
+                }
+            }
+            
+        }
+        .update {
+            background-color: $btn-color;
+            cursor: pointer;
+            margin-top: 30px;
+            padding: 16px 20px;
+            font-size: 15px;
+            color:white;
+            font-weight: 600;
+            text-transform: capitalize;
+            &:hover{
+                background-color: $main-color;
+            }
+        }
+    }
+}
+
+.account-right{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 88px;
+    @include mobile-xl {
+        grid-row: 1;
+        padding-top: 30px;
+    }
+    h1{
+        display: none;
+        @include mobile-xl {
+            font-size: 30px;
+            margin-bottom: 50px;
+        }
+    }
+    img{
+        width:150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    label{
+        input[type=file]{
+            visibility: hidden;
+        }
+        span{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: $btn-color;
+            font-size: 16px;
+            padding:14px 24px;
+            text-align: center;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            &:hover{
+                background-color: $main-color;
+            }
+        }
+    }
+}

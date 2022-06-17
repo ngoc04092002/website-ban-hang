@@ -1,0 +1,51 @@
+@use '../../../scss/' as *;
+
+.category {
+    width: 20%;
+    margin-right: 2rem;
+    @include mobile-xl{
+        display: none;
+    }
+    h3 {
+        cursor: default;
+        border-bottom: $border-line;
+        padding-bottom: 1rem;
+        width: fit-content;
+        & > svg {
+            margin-right: 0.6rem;
+            transform: translateY(14%);
+        }
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        li {
+            font-size: 1.2rem;
+            text-transform: capitalize;
+            padding: 0.6rem 1rem;
+            cursor: pointer;
+            position: relative;
+            width: 100%;
+            margin: 0 0 0.2rem 2rem;
+            &::after {
+            }
+            &:hover {
+                color: $btn-color;
+            }
+            &.active {
+                margin-left: 0;
+                background-color: $color-active;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 8px;
+                    height: 100%;
+                    background-color: $blue;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+}

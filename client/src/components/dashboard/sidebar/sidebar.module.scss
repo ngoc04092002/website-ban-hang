@@ -1,0 +1,158 @@
+@use '../../../scss/' as *;
+
+.side__bar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 2rem;
+    width: 100%;
+    border-right: 1px solid #e6e6e6;
+    @include mobile-xl {
+        position: fixed;
+        z-index: 12;
+        background-color: #ffe0e0;
+        padding-right: 1rem;
+        height: 100%;
+        width: 60%;
+    }
+
+    .back-home {
+        font-size: 28px;
+        text-align: center;
+        cursor: pointer;
+        display: none;
+        &:hover {
+            padding-right: 10px;
+        }
+        @media screen and (min-width: 770px) and (max-width: 1200px) {
+            display: block;
+        }
+    }
+
+    .logo {
+        @include flex(center, center);
+        height: 5rem;
+        font-size: 22px;
+        gap: 1rem;
+        font-weight: bold;
+        img {
+            height: 3rem;
+            width: 3rem;
+            object-fit: cover;
+        }
+        span {
+            text-transform: capitalize;
+        }
+        @include tablet-xl {
+            display: none;
+        }
+        @include mobile-xl {
+            display: flex;
+        }
+    }
+    .menu {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1.6rem;
+        .menu-item {
+            cursor: pointer;
+            & > svg {
+                font-size: 28px;
+                @include mobile-xl {
+                    margin-left: 1rem;
+                }
+            }
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+            position: relative;
+            margin-left: 1rem;
+            height: 3rem;
+            border-radius: 0.6rem;
+            padding: 1rem;
+            @include mobile-xl {
+                padding: 2rem 0;
+            }
+            @include mobile-s {
+                padding: 3rem 1rem;
+            }
+            span {
+                text-transform: capitalize;
+                font-size: 14px;
+                @include tablet-xl {
+                    display: none;
+                }
+                @include mobile-xl {
+                    display: block;
+                }
+            }
+            &.active {
+                margin-left: 0;
+                background-color: $color-active;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 8px;
+                    height: 100%;
+                    background-color: $blue;
+                    left: 0;
+                }
+            }
+            &:last-child {
+                position: absolute;
+                bottom: 2rem;
+                width: 100%;
+                @include mobile-xl {
+                    position: relative;
+                    margin-top: 2rem;
+                }
+            }
+        }
+    }
+}
+
+.bars {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 2rem;
+    z-index: 10;
+    background-color: #ffe0e0;
+    font-size: 2rem;
+    position: fixed;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+    cursor: pointer;
+    span {
+        height: 3px;
+        width: 28px;
+        background: black;
+        margin-bottom: 5px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:nth-of-type(1) {
+            &.active {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+        }
+        &:nth-of-type(2) {
+            &.active {
+                transform: rotate(-45deg);
+            }
+        }
+        &:nth-of-type(3) {
+            &.active {
+                opacity: 0;
+            }
+        }
+    }
+    @include mobile-xl {
+        display: flex;
+    }
+}

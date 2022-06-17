@@ -1,0 +1,155 @@
+@use '../../scss/' as *;
+
+.products-home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    cursor: default;
+    
+    .product-home{
+        border: 1px solid #ccc;
+        &:hover{
+            box-shadow: 0 0 28px rgba(0, 0, 0, 0.5);
+            transform: scale(1.01);
+        }
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+        width: 19.2%;
+        padding: .2rem;
+        margin: 4px 2px;
+        font-weight: 500;
+        @include tablet{
+            width: 24%;
+        }
+        @include mobile-xl{
+            width:32%;
+        }
+        @include mobile{
+            width: 48%;
+        }
+        @include mobile-s{
+            width: 100%;
+        }
+        .product-home__container{
+            img{
+                width: 100%;
+                height: 10rem;
+                object-fit: cover;
+            }
+            width: 100%;
+            .item__desc{
+                display: -webkit-box;
+                text-overflow: ellipsis;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                white-space: normal;
+                height: 2.75rem;
+                word-wrap: break-word;
+                overflow: hidden;
+                @include mobile{
+                    font-size: 1.6rem;
+                }
+                @include tablet{
+                    height: 2.65rem;
+                }
+                @include mobile{
+                    height: 4.2rem;
+                }
+            }
+            .item__sale{
+                margin: 1rem 0;
+                @include flex(center,space-between);
+                font-size: 1.2rem;
+                opacity: 0;
+                font-size: 1rem;
+                span{
+                    display: flex;
+                    align-items: center;
+                }
+                p{
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    text-transform: capitalize;
+                    font-size: .95rem;
+                    @include mobile{
+                        font-size: 1.6rem;
+                    }
+                }
+                &.active{
+                    opacity: 1;
+                }
+                @include mobile{
+                    font-size: 1.8rem;
+                }
+            }
+            .item__info{
+                
+                .item__info-reviews{
+                    display: flex;
+                    .item__icon-start{
+                        font-size: 1.1rem;
+                        margin-right:1px;
+                        cursor: pointer;
+                        &.active{
+                            color: yellow;
+                        }
+                        @include mobile{
+                            font-size: 2rem;
+                        }
+                    }
+                }
+                .item__info-price{
+                    font-size: 1.1rem;
+                    &.saled{
+                        text-decoration: line-through $main-color solid 2px;
+                       
+                    }
+                    @include mobile{
+                        font-size: 2rem;
+                    }
+                }
+            }
+            .item__info,.item__select{
+                margin-top: .4rem;
+                @include flex(center,space-between);
+            }
+            .item__select{
+                margin-bottom: .4rem;
+                span{
+                    display: flex;
+                    align-items: center;
+                    .item__icon-heart{
+                        margin-right: 2px;
+                        font-size: 1.6rem;
+                        cursor: pointer;
+                        &.active{
+                            color: red;
+                        }
+                        p{
+                            cursor: default;
+                        }
+                        @include mobile{
+                            font-size: 2.8rem !important;
+                        }
+                    }
+                }
+                button{
+                    font-size: 1.1rem;
+                    padding: 0.4rem 1.5rem;
+                    border-radius: 0.4rem;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    background-color:$btn-color;
+                    cursor: pointer;
+                    color:white;
+                    @include mobile{
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}

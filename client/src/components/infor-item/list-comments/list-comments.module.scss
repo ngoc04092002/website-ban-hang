@@ -1,0 +1,162 @@
+@use '../../../scss/' as *;
+
+.list-comment {
+    margin-top: 20px;
+    display: flex;
+    & > img {
+        width: 36px;
+        height: 36px;
+        object-fit: cover;
+        margin-right: 4px;
+    }
+    &.answer {
+        flex-direction: row-reverse;
+    }
+    .comment_body {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        .comment_in {
+            margin-bottom: 16px;
+            width: fit-content;
+            background-color: #f2f3f5;
+            border-radius: 18px;
+            color: #1c1e21;
+            display: inline-block;
+            padding: 9px 12px;
+            position: relative;
+            cursor: default;
+            line-height: 1.5;
+            &.answer {
+                background-color: $main-color;
+                color: $white;
+                align-self: end;
+            }
+            p {
+                word-break: break-word;
+                max-height: 140px;
+                margin-bottom: 0;
+                overflow: hidden;
+                &.show_text {
+                    max-height: 100%;
+                }
+            }
+        }
+        p {
+            margin-bottom: 16px;
+            &.answer {
+                display: flex;
+                align-items: center;
+                flex-direction: row-reverse;
+            }
+            span {
+                font-size: 13px;
+                margin-right: 8px;
+                cursor: pointer;
+                color: $btn-color;
+                &:hover {
+                    text-decoration: $text-decoration;
+                }
+                user-select: none;
+                &:nth-of-type(3) {
+                    color: #ccc;
+                    cursor: default;
+                    text-decoration: none;
+                    font-weight: 600;
+                }
+            }
+        }
+        .expand_text {
+            padding: 4px;
+            position: absolute;
+            background-color: inherit;
+            width: 100%;
+            bottom: 0;
+            border-radius: inherit;
+            left: 0;
+            text-align: center;
+            span {
+                padding: inherit;
+                color: $btn-color;
+                cursor: pointer;
+                &:hover {
+                    text-decoration: $text-decoration;
+                    color: $main-color;
+                }
+                &.text {
+                    color: $white;
+                    &:hover {
+                        text-decoration-color: $white;
+                    }
+                }
+            }
+        }
+        .reactions {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            position: absolute;
+            right: 16px;
+            bottom: -12px;
+            box-shadow: 0 1px 3px 0 #00000033;
+            z-index: 2;
+            width: fit-content;
+            background-size: 100% 100%;
+            border-radius: 8px;
+            padding: 0 3px;
+            color: $black;
+            font-size: 14px;
+            &.answer {
+                left: 16px;
+            }
+            img {
+                width: 16px;
+                height: 16px;
+                object-fit: cover;
+                margin: 0;
+            }
+        }
+        .expand {
+            overflow: unset !important;
+            opacity: 0;
+            align-self: center;
+            color: #888;
+            margin-bottom: 12px;
+            position: absolute;
+            top: 50%;
+            left: -28px;
+            transform: translateY(-50%);
+            span {
+                word-break: initial;
+                display: none;
+                left: -13px;
+                top: 14px;
+                padding: 9px;
+                cursor: pointer;
+                position: absolute;
+                color: #ccc;
+                font-size: 15px;
+            }
+            &:hover {
+                span {
+                    display: block;
+                }
+            }
+        }
+        &:hover {
+            .expand {
+                opacity: 1;
+            }
+        }
+    }
+}
+.open_comments {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: $btn-color;
+    &:hover {
+        text-decoration: $text-decoration;
+        color: $main-color;
+    }
+}

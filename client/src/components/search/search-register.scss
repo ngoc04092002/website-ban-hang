@@ -1,0 +1,48 @@
+@use '../../scss/' as *;
+
+.search {
+    width: 100%;
+    background-color: $white;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    height: 3rem;
+    @include flex(center, space-between);
+    label {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        input {
+            caret-color: $btn-color;
+            flex: 1;
+            font-size: 1.2rem;
+            padding-right: 2rem;
+        }
+
+        .bi-icon {
+            position: absolute;
+            right: 0.4rem;
+            cursor: pointer;
+            font-size: 1.4rem;
+            &.loader {
+                animation: rotationInfinite 1s infinite linear;
+                cursor: default;
+            }
+        }
+        .icon {
+            width: 1.6em;
+            height: 1.6em;
+            margin: 0 1rem;
+            border-right: 1px solid #e6e4e4;
+            color: inherit;
+        }
+        @keyframes rotationInfinite {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}

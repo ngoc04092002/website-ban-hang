@@ -1,0 +1,52 @@
+@use '../../scss/' as *;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+.wrapper{
+    background: linear-gradient(
+        106deg,
+        #bce4ff 29.63%,
+        #cfedff 51.55%,
+        #c1e7fd 90.85%
+    );
+    height: 100vh;
+    @include flex(center,center);
+    font-family: $font-family;
+
+}
+
+.container{
+    overflow: hidden;
+    height: 97%;
+    width: 97%;
+    border-radius: 2rem;
+}
+.profile-glass{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    
+    background: $glass;
+    grid-template-columns: 12.6rem auto 22rem;
+    overflow-y: scroll; 
+    @include tablet-xl{
+        grid-template-columns: 8% 56% auto;
+    }
+    @include mobile-xl{
+        grid-template-columns: 1fr;
+    }
+    &::-webkit-scrollbar {
+        width: .4rem;
+        @include mobile-xl{
+            display: none;
+        }
+    }
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        
+        border-radius: 2rem;
+    }
+}
+

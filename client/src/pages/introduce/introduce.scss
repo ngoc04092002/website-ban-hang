@@ -24,6 +24,9 @@
                 letter-spacing: 0.2rem;
             }
         }
+        .header__left{
+            display: flex;
+        }
     }
     button {
         background-color: $btn-color;

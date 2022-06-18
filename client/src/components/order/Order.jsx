@@ -95,7 +95,7 @@ const Order = () => {
             {loading ? (
                 <Loading />
             ) : (
-                <Box sx={{ width: '100%', gridColumn: '2/4', p: '60px 1rem' }}>
+                <Box sx={{overflowX:'auto', width: '100%', gridColumn: '2/4', p: '60px 1rem' }}>
                     <h1>Đơn đặt hàng</h1>
                     <Paper sx={{ width: '100%', mb: 2, mt: 4 }}>
                         <EnhancedTableToolbar ids={selected} numSelected={selected.length} />

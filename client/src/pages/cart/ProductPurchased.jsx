@@ -51,7 +51,6 @@ const ProductPurchased = ({
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [quantityPurchased, id, dispatchEvent]);
 
-    console.log(toggle.isSelect);
 
     return (
         <div className="lists__purchased-wrapper">

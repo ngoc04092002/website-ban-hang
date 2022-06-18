@@ -14,6 +14,9 @@
     }
     .left {
         padding-right: 20px;
+        @include mobile-s{
+            width: 100%;
+        }
         @include mobile-xl{
             padding-bottom: 10px;
             padding-right: 0;

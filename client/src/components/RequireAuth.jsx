@@ -15,7 +15,7 @@ const RequireAuth = () => {
     useEffect(() => {
         const verifyRefreshToken = async () => {
             try {
-                const res = await Axios.get('/auth/refresh');
+                const res = await Axios.get('auth/refresh');
                 if (res.data.permis && !!res.data.Infor.accessToken) {
                     setPermission(true);
                     localStorage.setItem('user', JSON.stringify(res.data.Infor));

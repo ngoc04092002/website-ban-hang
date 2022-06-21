@@ -99,6 +99,10 @@
                 font-weight: 500;
                 border-radius: 0.4rem;
                 text-transform: capitalize;
+                &[disabled] {
+                    background-color: #ccc;
+                    pointer-events: none;
+                }
                 &:hover {
                     background-color: rgb(39, 147, 248);
                 }

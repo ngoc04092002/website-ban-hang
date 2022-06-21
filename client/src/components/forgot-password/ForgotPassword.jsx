@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import { HiOutlineMail } from 'react-icons/hi';
 import { BsFillArrowRightSquareFill, BsFillArrowLeftSquareFill } from 'react-icons/bs';
 import { Axios } from '~/api/request';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import CheckSuccess from '~/assets/check-success.gif';
 import { motion } from 'framer-motion';
 
@@ -16,8 +16,14 @@ const ForgotPassword = () => {
     const [value, setValue] = useState('');
     const [show, setShow] = useState(false);
 
-    
     const handleSendMail = async () => {
+        let regex = new RegExp('[a-z0-9]+@[a-z]+\\.[a-z]{2,3}');
+
+        if (!regex.test(value)) {
+            toast.error('Bạn nhập sai định dạng email');
+            return;
+        }
+
         try {
             const res = await Axios.post('api-nodemail-forgot-password/sendmail', {
                 sender_mail: value.trim(),
@@ -81,6 +87,7 @@ const ForgotPassword = () => {
                     </div>
                 </motion.div>
             )}
+            <Toaster position="top-center" reverseOrder={true} />
         </section>
     );
 };

@@ -8,7 +8,7 @@ import Loading from '~/components/loading/Loading';
 const RequireAuth = () => {
     const navigate = useNavigate();
     const { user } = useAuth();
-
+    
     const [isLoading, setIsLoading] = useState(true);
     const [permission, setPermission] = useState(false);
 

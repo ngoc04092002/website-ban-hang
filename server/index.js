@@ -25,7 +25,7 @@ var sess = {
 app.use(
     cors({
         credentials: true,
-        origin: 'http://localhost:3000',
+        origin: process.env.PATH_CLIENT,
         methods: 'GET,POST,PUT,DELETE',
     }),
 );

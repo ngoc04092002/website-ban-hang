@@ -28,6 +28,7 @@ const Header = () => {
                     <p>Chào mừng bạn đã đến với chúng tôi by Ngọc Văn ^_^</p>
                     <a href="/home">
                         <motion.button
+                            style={{ marginRight: 0 }}
                             initial={{ x: -110, opacity: 0 }}
                             animate={{
                                 x: 0,

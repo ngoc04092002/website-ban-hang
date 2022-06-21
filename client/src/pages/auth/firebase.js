@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
+import toast from 'react-hot-toast';
 
 import { axiosAuth } from '~/api/request';
 import { refreshJob } from '~/context/AuthActions';
@@ -18,56 +19,42 @@ const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 
 export const auth = getAuth(app);
-const providerGoogle = new GoogleAuthProvider();
+
+function signInWithSocial(provider, setUser, user, dispatchEvent) {
+    return signInWithPopup(auth, provider)
+        .then(async (result) => {
+            const token = result.credential.accessToken;
+            console.log(token);
+            const { displayName, email, photoURL } = result.user;
+            const res = await axiosAuth.post('login-social', {
+                displayName,
+                email,
+                photoURL,
+            });
+            if (user.email !== email) {
+                dispatchEvent(refreshJob());
+                setUser({
+                    accessToken: res.data.accessToken,
+                    username: displayName,
+                    email,
+                    image: photoURL,
+                    gender: user?.gender,
+                });
+            }
+            window.location = '/home';
+        })
+        .catch((e) => {
+            toast.error('Email đã tồn tại, vui lòng bạn hãy đăng nhập cách khác!');
+            console.log('Error: ', e);
+        });
+}
 
 export const signInWithGoole = (setUser, user, dispatchEvent) => {
-    signInWithPopup(auth, providerGoogle)
-        .then(async (result) => {
-            const { displayName, email, photoURL } = result.user;
-            const res = await axiosAuth.post('login-social', {
-                displayName,
-                email,
-                photoURL,
-            });
-            if (user.email !== email) {
-                dispatchEvent(refreshJob());
-                setUser({
-                    accessToken: res.data.accessToken,
-                    username: displayName,
-                    email,
-                    image: photoURL,
-                    gender: user?.gender,
-                });
-            }
-            window.location = '/home';
-        })
-        .catch((e) => console.error(e));
+    const providerGoogle = new GoogleAuthProvider();
+    signInWithSocial(providerGoogle, setUser, user, dispatchEvent);
 };
-
-const providerFacebook = new FacebookAuthProvider();
 
 export const signInWithFacebook = (setUser, user, dispatchEvent) => {
-    signInWithPopup(auth, providerFacebook)
-        .then(async (result) => {
-            const { displayName, email, photoURL } = result.user;
-            const res = await axiosAuth.post('login-social', {
-                displayName,
-                email,
-                photoURL,
-            });
-            if (user.email !== email) {
-                dispatchEvent(refreshJob());
-                setUser({
-                    accessToken: res.data.accessToken,
-                    username: displayName,
-                    email,
-                    image: photoURL,
-                    gender: user?.gender,
-                });
-            }
-            window.location = '/home';
-        })
-        .catch((e) => console.error(e));
+    const providerFacebook = new FacebookAuthProvider();
+    signInWithSocial(providerFacebook, setUser, user, dispatchEvent);
 };
-
-//handle upload image

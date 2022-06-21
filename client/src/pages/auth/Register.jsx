@@ -7,7 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import './register.scss';
 import GIF from '~/assets/robot.gif';
 import { useDispatch, useSelector } from 'react-redux';
-import { postAuth,refreshDatas } from '~/features/fetchDatas/authSlice';
+import { postAuth, refreshDatas } from '~/features/fetchDatas/authSlice';
 
 const validationSchema = yup.object({
     username: yup
@@ -32,7 +32,7 @@ const validationSchema = yup.object({
 
 const Register = () => {
     const dispatch = useDispatch();
-    const { datas, error } = useSelector((state) => state.auth);
+    const { loading, datas, error } = useSelector((state) => state.auth);
 
     const handleSubmit = (values, { resetForm }) => {
         dispatch(postAuth({ path: 'register', option: values }));
@@ -110,7 +110,10 @@ const Register = () => {
                                 </li>
                             </ul>
 
-                            <button type="submit">Register</button>
+                            <button disabled={loading} type="submit">
+                                {!loading && 'Register'}
+                                {loading && 'Register...'}
+                            </button>
                             <p>
                                 Do you already have an account? <a href="/login">login</a>
                             </p>

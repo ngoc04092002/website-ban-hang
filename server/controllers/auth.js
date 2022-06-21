@@ -106,7 +106,7 @@ var logInSocial = async (req, res, next) => {
                 username: displayName,
                 email: email,
                 image: photoURL,
-                password: '123456',
+                password: jwt.sign('123456', process.env.SECRET),
             });
             await newInf.save();
             accessToken = jwt.sign(newInf._id.toString(), process.env.SECRET);

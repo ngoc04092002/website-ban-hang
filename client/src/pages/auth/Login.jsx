@@ -27,7 +27,7 @@ const Login = ({ dispatchEvent }) => {
     const navigate = useNavigate();
     const { user, setUser } = useAuth();
     const dispatch = useDispatch();
-    const { datas, error } = useSelector((state) => state.auth);
+    const { datas, error, loading } = useSelector((state) => state.auth);
 
     const handleSubmit = (values, { resetForm }) => {
         dispatch(postAuth({ path: 'login', option: values }));
@@ -81,7 +81,10 @@ const Login = ({ dispatchEvent }) => {
                             />
                             <ErrorMessage name="password" component="span" />
 
-                            <button type="submit">Login</button>
+                            <button disabled={loading} type="submit">
+                                {!loading && 'Login'}
+                                {loading && 'Login...'}
+                            </button>
                             <div className="auth__social">
                                 <div onClick={() => signInWithGoole(setUser, user, dispatchEvent)} className="auth">
                                     <AuthGoogleSvg />
@@ -100,7 +103,13 @@ const Login = ({ dispatchEvent }) => {
                     )}
                 </Formik>
             </div>
-            <Toaster position="top-center" reverseOrder={true} />
+            <Toaster
+                position="top-center"
+                reverseOrder={true}
+                toastOptions={{
+                    duration: 3000,
+                }}
+            />
         </div>
     );
 };

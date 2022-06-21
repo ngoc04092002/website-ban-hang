@@ -3,8 +3,9 @@ const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
 const brcypt = require('bcrypt');
 
-var sendMail = (req, res, next) => {
+var sendMail =async (req, res, next) => {
     const { sender_mail } = req.body;
+    
     User.findOne({ email: sender_mail })
         .then((data) => {
             let transporter = nodemailer.createTransport({

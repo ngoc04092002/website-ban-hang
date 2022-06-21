@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 export const Axios = axios.create({
-    baseURL: `https://backendapibanhang.herokuapp.com/`,
+    baseURL: `${process.env.REACT_APP_BASE_URL}/`,
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true,
 });
 
 //api/auth
 export const axiosAuth = axios.create({
-    baseURL: `https://backendapibanhang.herokuapp.com/auth/`,
+    baseURL: `${process.env.REACT_APP_BASE_URL}/auth/`,
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true,
 });
@@ -21,7 +21,7 @@ export const getAuth = async (path, option = {}) => {
 
 //api/products
 export const axiosProducts = axios.create({
-    baseURL: `https://backendapibanhang.herokuapp.com/products/`,
+    baseURL: `${process.env.REACT_APP_BASE_URL}/products/`,
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true,
 });
@@ -29,7 +29,7 @@ export const axiosProducts = axios.create({
 
 //api/order
 export const axiosOrder = axios.create({
-    baseURL: `https://backendapibanhang.herokuapp.com/order/`,
+    baseURL: `${process.env.REACT_APP_BASE_URL}/order/`,
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true,
 });
@@ -37,7 +37,7 @@ export const axiosOrder = axios.create({
 
 //api/comments
 export const axiosComments = axios.create({
-    baseURL: `https://backendapibanhang.herokuapp.com/comments/`,
+    baseURL: `${process.env.REACT_APP_BASE_URL}/comments/`,
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true,
 });

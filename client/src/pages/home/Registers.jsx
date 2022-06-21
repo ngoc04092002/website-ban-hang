@@ -24,21 +24,14 @@ const Registers = () => {
     const sendEmail = (e) => {
         e.preventDefault();
 
-        emailjs
-            .sendForm(
-                process.env.REACT_APP_SERVICE_ID,
-                process.env.REACT_APP_TEMPLATE_ID,
-                form.current,
-                process.env.REACT_APP_PUBLIC_KEY,
-            )
-            .then(
-                () => {
-                    toast.success('Sent successfully', { duration: 1000 });
-                },
-                () => {
-                    toast.error('An error occurred, please try again', { duration: 1000 });
-                },
-            );
+        emailjs.sendForm('service_badwnib', 'template_itbweie', form.current, '0a1I0fwcrB4lMG71v').then(
+            () => {
+                toast.success('Sent successfully', { duration: 1000 });
+            },
+            () => {
+                toast.error('An error occurred, please try again', { duration: 1000 });
+            },
+        );
     };
 
     return (

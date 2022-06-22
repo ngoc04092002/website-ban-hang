@@ -7,12 +7,12 @@ import { axiosAuth } from '~/api/request';
 import { refreshJob } from '~/context/AuthActions';
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyBl9l6fzJHbsn8mBvkJAXf4DGH08ajrcsY',
-    authDomain: 'gooleauth-ff3ce.firebaseapp.com',
-    projectId: 'gooleauth-ff3ce',
-    storageBucket: 'gooleauth-ff3ce.appspot.com',
-    messagingSenderId: '444716980303',
-    appId: '1:444716980303:web:c2a1418deb12daaeb8f23a',
+    apiKey: 'AIzaSyB-Q6jBLoVWjjoevNkf8FpGbBitS_IB5ig',
+    authDomain: 'apiwebsitebanhang-1bd4a.firebaseapp.com',
+    projectId: 'apiwebsitebanhang-1bd4a',
+    storageBucket: 'apiwebsitebanhang-1bd4a.appspot.com',
+    messagingSenderId: '621762823162',
+    appId: '1:621762823162:web:546d6abbd96ac44f891a43',
 };
 
 const app = initializeApp(firebaseConfig);
@@ -23,8 +23,6 @@ export const auth = getAuth(app);
 function signInWithSocial(provider, setUser, user, dispatchEvent) {
     return signInWithPopup(auth, provider)
         .then(async (result) => {
-            const token = result.credential.accessToken;
-            console.log(token);
             const { displayName, email, photoURL } = result.user;
             const res = await axiosAuth.post('login-social', {
                 displayName,
@@ -44,7 +42,7 @@ function signInWithSocial(provider, setUser, user, dispatchEvent) {
             window.location = '/home';
         })
         .catch((e) => {
-            toast.error('Email đã tồn tại, vui lòng bạn hãy đăng nhập cách khác!');
+            toast.error('Lỗi truy cập, vui lòng bạn hãy đăng nhập cách khác!');
             console.log('Error: ', e);
         });
 }

@@ -1,11 +1,10 @@
 import * as request from './request';
 
 //auth
-export const logOut=async (path)=>{
-    try{
+export const logOut = async (path) => {
+    try {
         await request.getAuth(path);
-    }catch(e){
+    } catch (e) {
         console.log(e);
     }
-}
-
+};

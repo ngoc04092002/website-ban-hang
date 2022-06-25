@@ -130,6 +130,9 @@
                 margin-top: 0.6rem;
                 width: 100%;
                 @include flex(center, space-between);
+                @include mobile-xl{
+                    display: none;
+                }
                 .auth {
                     cursor: pointer;
                     box-shadow: $box-shadow;

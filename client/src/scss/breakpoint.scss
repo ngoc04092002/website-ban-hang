@@ -1,29 +1,34 @@
 @use './variables.scss' as *;
 
+//450px
 @mixin mobile-s {
     @media only screen and (max-width: $mobile-s-width) {
         @content;
     }
 }
 
+//600px
 @mixin mobile {
     @media only screen and (max-width: $mobile-width) {
         @content;
     }
 }
 
+//768px
 @mixin mobile-xl {
     @media only screen and (max-width: $mobile-xl-width) {
         @content;
     }
 }
 
+//1024px
 @mixin tablet {
     @media only screen and (max-width: $tablet-width) {
         @content;
     }
 }
 
+//1200px
 @mixin tablet-xl {
     @media only screen and (max-width: $tablet-xl-width) {
         @content;
